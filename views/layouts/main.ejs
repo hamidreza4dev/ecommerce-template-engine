@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pageTitle %></title>
+  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="/main.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body x-data="{ cartOpen: false , isOpen: false }">
+
+  <%- include('../includes/navigation.ejs') %> 
+  <%- include('../includes/cart.ejs') %> 
+
+  <main class="my-8">
+    <%- body %> 
+  </main>
+
+  <%- include('../includes/footer.ejs') %> 
+
+  <script src="/vendor.bundle.js"></script>
+  <script src="/main.bundle.js"></script>
+</body>
+</html>

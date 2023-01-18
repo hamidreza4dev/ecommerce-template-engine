@@ -1,0 +1,59 @@
+<div>
+  <h1 class="text-2xl font-bold mb-4">products</h1>
+  <div class="mb-2">
+    <form action="" method="post">
+      <div class="flex gap-2">
+        <div class="flex flex-col gap-1 max-w-xs">
+          <label for="">search</label>
+          <input type="search" class="w-full" name="search" placeholder="Enter product name">
+        </div>
+
+        <div class="flex flex-col gap-1 max-w-xs">
+          <label for="">search</label>
+          <select type="search" class="w-full" name="sort">
+            <option value=""></option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div> 
+  <div class="overflow-hidden ring-1 ring-black ring-opacity-5">
+    <table class="min-w-full divide-y divide-gray-300 border-gray-300">
+      <thead class="bg-gray-50">
+        <tr>
+          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Title</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Category</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Features</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Tags</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Action</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200 bg-white">
+        <% if (products.length > 0) { %>
+          <% products.forEach(product => { %>
+            <tr>
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= product.title %></td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= formatDate(product.createdAt) %></td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm"><span class="px-2 py-1 rounded-lg <%= product.status === 'عمومی' ? 'bg-green-100 text-green-500' : 'bg-red-100 text-red-500' %>"><%= product.status %></span></td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm"><% product.forEach(tags => { %>
+                <span class="bg-slate-200 rounded-lg px-2 py-1 text-slate-900"><%= tag %></span>
+              <% }) %></td>
+              <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6 flex gap-2">
+                <a href="/dashboard/edit-post/<%= product._id %>" class="text-primary-600 hover:text-primary-900 transition">edit</a>
+                <form action="/dashboard/delete-post" method="post">
+                  <input type="hidden" name="id" value="<%= product._id %>">
+                  <button class="text-red-600 hover:text-red-900 transition">delete</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="6" class="text-xl font-bold text-center py-2">no products Found !</td>  
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<% if (errorMessages) { %>
+  <% errorMessages.forEach(err => { %>
+    <div class="bg-rose-100 text-rose-500 border border-rose-200 p-2 rounded-lg flex justify-between items-center" x-data>
+      <p><%= err %></p>
+      <button class="cursor-pointer px-2 hover:scale-150 transition" @click="$el.closest('[x-data]').remove();">&times;</button>    
+    </div>
+  <% }) %>
+<% } %>
