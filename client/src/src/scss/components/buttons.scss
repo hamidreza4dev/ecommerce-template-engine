@@ -1,0 +1,62 @@
+@layer components {
+  /* button */
+  .btn {
+    @apply text-center rounded-lg relative;
+    transition-property: box-shadow, background-color, border-color, color, fill,
+      stroke, opacity, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .btn-xs {
+    @apply text-xs px-3 py-2;
+  }
+  .btn-sm {
+    @apply text-sm px-3 py-2;
+  }
+  .btn-base {
+    @apply text-sm px-5 py-2.5;
+  }
+  .btn-lg {
+    @apply text-base px-5 py-3;
+  }
+  .btn-xl {
+    @apply text-base px-6 py-3.5;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 border-primary-500 border hover:bg-primary-700 active:bg-primary-700 focus:bg-primary-700 text-white ring-0 ring-primary-100 focus:ring-4;
+  }
+
+  .btn-alternative {
+    @apply border border-gray-400 hover:bg-gray-100 active:bg-gray-100 focus:bg-gray-100 text-gray-700 bg-white ring-0 ring-gray-300 focus:ring-4;
+  }
+
+  .btn-dark {
+    @apply bg-neutral-700 border-neutral-700 border hover:bg-neutral-900 active:bg-neutral-900 focus:bg-neutral-900 text-white ring-0 ring-neutral-500 focus:ring-4;
+  }
+
+  .btn-red {
+    @apply bg-rose-600 border-rose-600 border hover:bg-rose-700 active:bg-rose-700 focus:bg-rose-700 text-white ring-0 ring-rose-300 focus:ring-4;
+  }
+
+  .btn-green {
+    @apply bg-emerald-600 border-emerald-600 border hover:bg-emerald-700 active:bg-emerald-700 focus:bg-emerald-700 text-white ring-0 ring-emerald-300 focus:ring-4;
+  }
+
+  .btn-yellow {
+    @apply bg-amber-400 border-amber-400 border hover:bg-amber-500 active:bg-amber-500 focus:bg-amber-500 text-neutral-900 ring-0 ring-amber-200 focus:ring-4;
+  }
+
+  .btn-blue {
+    @apply bg-sky-500 border-sky-500 border hover:bg-sky-600 active:bg-sky-600 focus:bg-sky-600 text-white ring-0 ring-sky-300 focus:ring-4;
+  }
+
+  .btn-link {
+    @apply text-blue-600 hover:text-blue-700 active:text-blue-700 focus:text-blue-700;
+  }
+
+  .btn-icon {
+    @apply flex items-center gap-2;
+  }
+}

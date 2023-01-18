@@ -1,0 +1,5 @@
+@layer components {
+  .container {
+    @apply max-w-[1600px] 2xl:max-w-7xl mx-auto px-4;
+  }
+}

@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import './fonts';
+  // iconsax font icon
+  @import '../../node_modules/iconsax-font-icon/dist/icons.css';
+  @import '../../node_modules/swiper/swiper-bundle.css';
+  .icon {
+    @apply flex items-center justify-center;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    --swiper-theme-color: #6120c9;
+  }
+}
+
+@layer components {
+  /* components */
+  @import './components/buttons.scss';
+  @import './components/forms.scss';
+  @import './components/tooltip.scss';
+
+  @import './main.scss';
+}

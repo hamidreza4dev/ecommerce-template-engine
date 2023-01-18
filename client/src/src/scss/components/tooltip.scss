@@ -1,0 +1,93 @@
+@layer components {
+  $bg-color: gray-900;
+  [data-tooltip] {
+    position: relative;
+
+    &::after {
+      content: attr(data-tooltip);
+      @apply bg-#{$bg-color} text-white
+           py-3 px-5 rounded-lg shadow-lg
+           opacity-0 pointer-events-none
+           absolute top-1/2 right-1/2 -translate-y-1/2 translate-x-1/2
+           text-sm transition-all whitespace-nowrap;
+    }
+
+    &::before {
+      content: '';
+      @apply border-transparent border-solid border-8
+           w-0 h-0
+           absolute right-1/2 top-1/2 -translate-y-1/2 translate-x-px
+           opacity-0 pointer-events-none
+           transition-all;
+    }
+
+    // toggle visibility
+    &[data-tooltip-dir]:hover {
+      &::after,
+      &::before {
+        @apply opacity-100 z-40;
+      }
+    }
+
+    // positioning
+    &[data-tooltip-dir='right'] {
+      &:hover {
+        $default-positioning: right-0 top-1/2 -translate-y-1/2;
+
+        &::after {
+          @apply #{$default-positioning}
+               translate-x-full -mr-4;
+        }
+
+        &::before {
+          @apply #{$default-positioning} border-r-#{$bg-color} border-l-0 -mr-4;
+        }
+      }
+    }
+
+    &[data-tooltip-dir='left'] {
+      &:hover {
+        $default-positioning: right-full top-1/2 -translate-y-1/2;
+
+        &::after {
+          @apply #{$default-positioning}
+               -translate-x-1 mr-4;
+        }
+
+        &::before {
+          @apply #{$default-positioning} border-l-#{$bg-color} border-r-0 mr-4;
+        }
+      }
+    }
+
+    &[data-tooltip-dir='top'] {
+      &:hover {
+        $default-positioning: right-1/2 top-0 -translate-y-full;
+
+        &::after {
+          @apply #{$default-positioning}
+               -mt-4;
+        }
+
+        &::before {
+          @apply #{$default-positioning} border-t-#{$bg-color} border-b-0 -mt-2.5 translate-x-1/2;
+        }
+      }
+    }
+
+    &[data-tooltip-dir='bottom'] {
+      &:hover {
+        $default-positioning: right-1/2 top-full translate-y-1;
+
+        &::after {
+          @apply #{$default-positioning}
+               mt-4;
+        }
+
+        &::before {
+          @apply #{$default-positioning} border-b-#{$bg-color} border-t-0 mt-2.5 translate-x-1/2;
+        }
+      }
+    }
+  }
+}

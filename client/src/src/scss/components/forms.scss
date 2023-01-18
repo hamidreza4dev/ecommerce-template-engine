@@ -1,0 +1,67 @@
+@layer components {
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select,
+  .tw-wrap-dropdown-customize-btn {
+    transition-property: box-shadow, background-color, border-color, color, fill,
+      stroke, opacity, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    @apply border border-slate-200 focus:border-primary-500 rounded-lg ring-0 focus:ring-primary-100 focus:ring-4 box-border dark:bg-transparent dark:text-white;
+  }
+
+  [type='checkbox'],
+  [type='radio'] {
+    transition-property: box-shadow, background-color, border-color, color, fill,
+      stroke, opacity, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    @apply border-primary-500 text-primary-500 shadow-sm focus:border-primary-500 focus:ring-primary-500;
+  }
+
+  .input-group {
+    @apply flex gap-2 items-center;
+  }
+
+  .toggle {
+    @apply rounded-full h-6 w-12 block relative cursor-pointer;
+  }
+
+  .toggle input {
+    @apply hidden;
+  }
+
+  .toggle span {
+    @apply bg-primary-500 rounded-full h-4 w-4 block absolute left-1 top-1 transform -m-0;
+    transition-property: left, transform, margin-left, background;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    z-index: 2;
+  }
+
+  .toggle div {
+    content: '';
+    z-index: 1;
+    @apply w-full h-full bg-primary-200 absolute top-0 left-0 rounded-full transition;
+  }
+
+  .toggle input:checked + span {
+    @apply left-full -translate-x-full -ml-1 bg-white;
+  }
+
+  .toggle input:checked ~ div {
+    @apply bg-primary-500;
+  }
+}
